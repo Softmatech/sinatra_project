@@ -9,6 +9,8 @@ body {
 
 .form_container {
   margin: 50px 350px;
+  left: 50%;
+  top: 50%;
 }
 .login_container {
   margin: 50px 350px;
