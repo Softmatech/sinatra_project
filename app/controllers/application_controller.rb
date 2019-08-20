@@ -7,7 +7,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :sessions_secret, "SoftmaPass#2019"
-    use Rack::Flash
+    # use Rack::Flash
   end
 
   get "/" do

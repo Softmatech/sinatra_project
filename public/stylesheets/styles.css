@@ -3,6 +3,7 @@
 }
 
 body {
+  background-image: url(../images/bingo.png);
   background-color: black;
   color: #ddd;
 }
@@ -18,8 +19,19 @@ body {
   top: 50%;
 }
 
+p {
+  text-align: center;
+}
+
+.label {
+  color: white;
+}
+
 h1,
-h3 {
+h3,
+h4,
+h5,
+h6 {
   text-align: center;
 }
 
@@ -114,4 +126,41 @@ button:hover {
   width: 100%;
   color: white;
   text-align: center;
+}
+
+/* The message box is shown when the user clicks on the password field */
+#message {
+  display: none;
+  background: black;
+  color: white;
+  position: relative;
+  /* padding: 5px; */
+  /* margin-top: 3px; */
+}
+
+#message p {
+  /* padding: 5px 15px; */
+  font-size: 10px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -25px;
+  /* content: "&#10004;"; */
+}
+
+/* Add a red text color and an "x" icon when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -25px;
+  /* content: "&#10006;"; */
 }
