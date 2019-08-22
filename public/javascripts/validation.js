@@ -1,4 +1,4 @@
-var myInput = document.getElementById("password_");
+var myInput = document.getElementById("password");
 var myInput_ = document.getElementById("password_repeat");
 var letter = document.getElementById("letter");
 var capital = document.getElementById("capital");

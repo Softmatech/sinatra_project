@@ -3,9 +3,9 @@
 }
 
 body {
-  background-image: url(../images/bingo.png);
+  background-image: url(../images/bingo-11.png);
   background-color: black;
-  color: #ddd;
+  color: black;
 }
 
 .form_container {
@@ -24,7 +24,7 @@ p {
 }
 
 .label {
-  color: white;
+  color: black;
 }
 
 h1,
@@ -150,7 +150,7 @@ button:hover {
 
 .valid:before {
   position: relative;
-  left: -25px;
+  left: -15px;
   /* content: "&#10004;"; */
 }
 
@@ -161,6 +161,6 @@ button:hover {
 
 .invalid:before {
   position: relative;
-  left: -25px;
+  left: -15px;
   /* content: "&#10006;"; */
 }
