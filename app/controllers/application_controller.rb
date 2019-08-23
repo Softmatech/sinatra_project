@@ -1,13 +1,14 @@
 require './config/environment'
+require 'sinatra/base'
 
 class ApplicationController < Sinatra::Base
-
+  set :method_override, true
 
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    set :sessions_secret, "SoftmaPass#2019"
+    set :session_secret, "secret"
     use Rack::Flash
   end
 
@@ -16,31 +17,32 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/login" do
-    if !logged_in?
+    if !(Helpers.is_logged_in?(session))
       puts "not already logged in"
       erb :login
       else
-        puts "user already logged in #{@session[:session_id]}"
+        # puts "user already logged in #{session[:session_id]}"
+        redirect "/profile"        
       end
   end
 
   post "/login" do
     if Users_account.exists?(email: params[:email])
-      puts "yessssssss"
         @user = Users_account.find_by(email: params[:email])
         if @user.authenticate(params[:password])
+          session[:user_id] = @user.id
           @session = session
-          @username = params[:email]
-          puts "passs OK #{@session}"
+          puts "passs OK #{@session[:user_id]}"
         redirect "/profile"
         else
           puts "problem with your pass"
-          
+          flash[:message] = "Authentication Problem (User/Password)"
         end
-      else
+    else
         puts "User doesn.t exist"
-      end
-      redirect "/login"
+        flash[:message] = "This email doesn't exist"
+    end
+      # redirect "/login"
   end
 
   
@@ -54,24 +56,18 @@ class ApplicationController < Sinatra::Base
       erb :signup
     else
       @users = Users_account.create(email: params[:email],password: params[:password])
-      # flash[:message] = "Account registered successfully"
+      flash[:message] = "Account registered successfully"
     redirect "/"
     end
   end
 
   get "/profile" do
-    puts "email ------>>> #{current_user}"
+    if Helpers.is_logged_in?(session)
+      puts "Session OK #{session[:user_id]}"
+      @user = Helpers.current_user(session)
+      puts "User ---->>> #{@user}"
     erb :profile
-  end
-
-  def logged_in?
-    !!session[:id]
-  end
-
-  def current_user
-    @username = Users_account.find_by(session[:id])
-    puts "current user ---->>> #{@username}"
+    end
   end
 
 end
-
