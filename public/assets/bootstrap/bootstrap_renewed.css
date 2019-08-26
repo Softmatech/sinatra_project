@@ -8,9 +8,9 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
-body {
-  margin: 0;
-}
+/*----------------------------------------------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------------------------------------------*/
 article,
 aside,
 details,
@@ -1086,11 +1086,18 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
   font-size: 14px;
-  line-height: 1.42857143;
-  color: #333;
-  background-color: #fff;
+  /* line-height: 1.42857143; */
+  /* color: #333; */
+  /* background-color: #fff; */
+
+  background-color: #000000;
+	color: #ffffff;
+	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	/* font-size: 16px; */
+	line-height: 1.5;
+	padding-bottom: 0.5rem;
 }
 button,
 input,
@@ -1148,10 +1155,14 @@ img {
   border-radius: 50%;
 }
 hr {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  /* margin-top: 20px; */
+  /* margin-bottom: 20px; */
   border: 0;
-  border-top: 1px solid #eee;
+  /* border-top: 1px solid #eee; */
+
+  border-top: 1px solid #727273;
+	margin-bottom: 2rem;
+	margin-top: 2rem;
 }
 .sr-only {
   position: absolute;
@@ -1188,7 +1199,7 @@ h4,
 h5,
 h6 {
   font-family: inherit;
-  font-weight: 500;
+  font-weight: 100;
   line-height: 1.1;
   color: inherit;
 }
@@ -7128,3 +7139,51 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.min.css.map */
+#revenue-tag {
+  border-radius: 0px !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.card {
+  background-color: transparent;
+  border: none;
+  margin-bottom: 0px;
+}
+
+#sales-doughnut-chart-us, #sales-doughnut-chart-nl, #sales-doughnut-chart-de {
+  height: 280px;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+#page-views-spline-area-chart, #orders-spline-area-chart, #revenue-spline-area-chart {
+  height: 100px;
+  width: 100%;
+}
+
+#users-doughnut-chart, #users-spline-chart {
+  height: 280px; 
+  margin-top: 2rem;
+  width: 100%;
+}
+
+#users-countries-bar-chart {
+  height: 360px; 
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.fixed-nav{
+  top: 0;
+  position: fixed;
+  width: 100%;
+}
+
+.margin-body {
+  padding-top: 60px;
+}
