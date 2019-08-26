@@ -3,9 +3,9 @@
 }
 
 body {
-  /* background-image: url(../images/bingo-11.png); */
+  background-image: url(../images/graphic.png);
   background-color: black;
-  color: black;
+  color: white;
 }
 
 .form_container {
