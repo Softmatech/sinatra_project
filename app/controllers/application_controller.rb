@@ -21,14 +21,13 @@ class ApplicationController < Sinatra::Base
       puts "not already logged in"
       erb :login
       else
-        # puts "user already logged in #{session[:session_id]}"
         redirect "/profile"        
       end
   end
 
   post "/login" do
-    if Users_account.exists?(email: params[:email])
-        @user = Users_account.find_by(email: params[:email])
+    if UsersAccount.exists?(email: params[:email])
+        @user = UsersAccount.find_by(email: params[:email])
         if @user.authenticate(params[:password])
           session[:user_id] = @user.id
           @session = session
@@ -42,7 +41,6 @@ class ApplicationController < Sinatra::Base
         puts "User doesn.t exist"
         flash[:message] = "This email doesn't exist"
     end
-      # redirect "/login"
   end
 
   
@@ -51,11 +49,11 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/signup" do
-    if Users_account.exists?(email: params[:email])
+    if UsersAccount.exists?(email: params[:email])
       flash[:message] = "Sorry, this email is already registered on our database"
       erb :signup
     else
-      @users = Users_account.create(email: params[:email],password: params[:password])
+      @users = UsersAccount.create(email: params[:email],password: params[:password])
       flash[:message] = "Account registered successfully"
     redirect "/"
     end
@@ -65,7 +63,6 @@ class ApplicationController < Sinatra::Base
     if Helpers.is_logged_in?(session)
       puts "Session OK #{session[:user_id]}"
       @user = Helpers.current_user(session)
-      puts "User ---->>> #{@user}"
     erb :profile
     end
   end

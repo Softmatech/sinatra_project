@@ -1,3 +1,3 @@
-class Tirage < Activerecord::Base
+class Tirage < ActiveRecord::Base
     belongs_to :lottery
 end

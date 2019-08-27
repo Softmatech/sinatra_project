@@ -12,6 +12,15 @@
 		<script src="assets/jquery.inview/jquery.inview.min.js"></script>
 		
 		<script>
+
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+
 			$(function () {
 				var totalRevenue = 15341110,
 						totalUsers = 7687036;
@@ -468,8 +477,28 @@
 			<h3>Bòlèt pam Dashboard</h3>
 
 			<div class="btn-create">
-			<button type="button" class="btn btn-primary">Create/Add</button>
+			<button type="button" class="btn btn-primary" onclick="openForm()">Create/Add</button>
 			</div>
+
+<div class="form-popup" id="myForm">
+  <form action="" class="form-container">
+	<h3>Lottery Register Form</h3>
+    <label for="name"><b>Name : </b></label>
+    <input type="text" placeholder="Enter the name of your lottery" name="name" required>
+
+	<label for="description"><b>Description : </b></label>
+    <input type="text" placeholder="Enter the description of your lottery" name="description" required>
+
+	<label for="adresse"><b>Adresse : </b></label>
+    <input type="text" placeholder="Enter the adresse of your lottery" name="adresse" required>
+
+	<label for="tel"><b>Telephone : </b></label>
+    <input type="text" placeholder="Enter the telephone of your lottery" name="telephone" required>
+    
+    <button type="submit" class="btn">Register</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
 
 			<h5 class="m-t-1">Total revenue : <span class="tag tag-success" id="revenue-tag">$15,341,110</span></h5>
 			<hr class="m-t-2">
