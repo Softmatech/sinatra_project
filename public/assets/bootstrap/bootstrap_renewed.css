@@ -8,9 +8,7 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
-/*----------------------------------------------------------------------------------------------------------------*/
 
-/*-----------------------------------------------------------------------------------------------------------------*/
 article,
 aside,
 details,
@@ -243,7 +241,7 @@ th {
     display: none;
   }
   .btn > .caret,
-  .dropup > .btn > .caret {
+  .dropup >  > .caret {
     border-top-color: #000 !important;
   }
   .label {
@@ -1162,7 +1160,7 @@ hr {
 
   border-top: 1px solid #727273;
 	margin-bottom: 2rem;
-	margin-top: 2rem;
+	margin-top: 4rem;
 }
 .sr-only {
   position: absolute;
@@ -3122,27 +3120,7 @@ textarea.input-lg {
     font-size: 12px;
   }
 }
-.btn {
-  display: inline-block;
-  margin-bottom: 0;
-  font-weight: 400;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
-  cursor: pointer;
-  background-image: none;
-  border: 1px solid transparent;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  border-radius: 4px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+
 .btn.active.focus,
 .btn.active:focus,
 .btn.focus,
@@ -3235,7 +3213,10 @@ fieldset[disabled] .btn-default:hover {
   color: #fff;
   background-color: #337ab7;
   border-color: #2e6da4;
+  width: auto;
+  float: right;
 }
+
 .btn-primary.focus,
 .btn-primary:focus {
   color: #fff;
@@ -3732,7 +3713,7 @@ tbody.collapse.in {
 @media (min-width: 768px) {
   .navbar-right .dropdown-menu {
     right: 0;
-    left: auto;
+    left: 0;
   }
   .navbar-right .dropdown-menu-left {
     right: auto;
