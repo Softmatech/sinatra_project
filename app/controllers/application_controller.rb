@@ -63,7 +63,22 @@ class ApplicationController < Sinatra::Base
     if Helpers.is_logged_in?(session)
       puts "Session OK #{session[:user_id]}"
       @user = Helpers.current_user(session)
-    erb :profile
+      if params[:id]
+        @lottery = Lottery.find(params[:id])
+        erb :profile
+      else
+        @lottery = @user.lotteries.first
+        erb :profile
+      end
+    
+    end
+  end
+
+  get "/profile/:id" do
+    if Helpers.is_logged_in?(session)
+      @user = Helpers.current_user(session)
+        @lottery = Lottery.find(params[:id])
+        erb :profile
     end
   end
 

@@ -1,15 +1,15 @@
 		    <!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="assets/bootstrap/bootstrap_renewed.css">
+		<link rel="stylesheet" href="/assets/bootstrap/bootstrap_renewed.css">
 		<!-- Google Font Roboto -->
-		<link rel="stylesheet" href="assets/fonts/font-roboto.css">
+		<link rel="stylesheet" href="/assets/fonts/font-roboto.css">
 				
 		<!-- Scripts -->
-		<script src="assets/jquery/jquery-3.1.0.min.js"></script>
-		<script src="assets/tether/tether.min.js"></script>
-		<script src="assets/bootstrap/bootstrap4-alpha3.min.js"></script>
+		<script src="/assets/jquery/jquery-3.1.0.min.js"></script>
+		<script src="/assets/tether/tether.min.js"></script>
+		<script src="/assets/bootstrap/bootstrap4-alpha3.min.js"></script>
 		<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-		<script src="assets/jquery.scrollspeed/jquery.scrollspeed.min.js"></script>
-		<script src="assets/jquery.inview/jquery.inview.min.js"></script>
+		<script src="/assets/jquery.scrollspeed/jquery.scrollspeed.min.js"></script>
+		<script src="/assets/jquery.inview/jquery.inview.min.js"></script>
 		
 		<script>
 
@@ -474,11 +474,22 @@ function closeForm() {
 
 <div class="container margin-body">
 
-			<h3>Bòlèt pam Dashboard</h3>
+			<h3><%= @lottery.name %> Dashboard</h3>
 
 			<div class="btn-create">
 			<button type="button" class="btn btn-primary" onclick="openForm()">Create/Add</button>
 			</div>
+
+<div class="dropdown">
+	<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><%= @lottery.name %>
+		<span class="caret"></span></button>
+			<ul class="dropdown-menu dropdown-menu-right">
+			<% @user.lotteries.each do |lot| %>
+			<li><a href="/profile/<%=lot.id%>"><%= lot.name %></a></li>
+			<% end%>
+				
+			</ul>
+</div>
 
 <div class="form-popup" id="myForm">
   <form action="/profile" method="post" class="form-container">
