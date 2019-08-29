@@ -67,4 +67,12 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+  post "/profile" do
+    # @user = Helpers.current_user session
+    # @user.lotteries.create(params)
+        @lottery = Lottery.create(params)
+        flash[:message] = "Lottery registered successfully"
+        redirect "/profile"
+  end
+
 end

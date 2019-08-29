@@ -481,8 +481,10 @@ function closeForm() {
 			</div>
 
 <div class="form-popup" id="myForm">
-  <form action="" class="form-container">
+  <form action="/profile" method="post" class="form-container">
 	<h3>Lottery Register Form</h3>
+	<input type="hidden" name="user_id" value="<%= @user.id %>" required>
+
     <label for="name"><b>Name : </b></label>
     <input type="text" placeholder="Enter the name of your lottery" name="name" required>
 
@@ -493,7 +495,7 @@ function closeForm() {
     <input type="text" placeholder="Enter the adresse of your lottery" name="adresse" required>
 
 	<label for="tel"><b>Telephone : </b></label>
-    <input type="text" placeholder="Enter the telephone of your lottery" name="telephone" required>
+    <input type="text" placeholder="Enter the telephone of your lottery" name="tel" required>
     
     <button type="submit" class="btn">Register</button>
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
