@@ -90,4 +90,13 @@ class ApplicationController < Sinatra::Base
         redirect "/profile"
   end
 
+  post "/edit/profile/:id" do
+    if Helpers.is_logged_in?(session)
+      @user = Helpers.current_user(session)
+        @lottery = Lottery.find(params[:id])
+        @lottery.update(params)
+        erb :profile
+    end
+  end
+
 end

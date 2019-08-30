@@ -1228,6 +1228,7 @@ h6 small {
   font-weight: 400;
   line-height: 1;
   color: #777;
+  text-align: center;
 }
 .h1,
 .h2,
@@ -1294,6 +1295,7 @@ h4 {
 .h5,
 h5 {
   font-size: 14px;
+  text-align: center;
 }
 .h6,
 h6 {
@@ -3215,7 +3217,7 @@ fieldset[disabled] .btn-default:hover {
   border-color: #2e6da4;
   width: auto;
   float: right;
-  margin: 3px;
+  margin: 1px;
 }
 
 .btn-primary.focus,
@@ -3272,7 +3274,7 @@ fieldset[disabled] .btn-primary:hover {
   border-color: #4cae4c;
   width: auto;
   float: right;
-  margin: 3px;
+  margin: 1px;
 }
 .btn-success.focus,
 .btn-success:focus {
@@ -3437,7 +3439,7 @@ fieldset[disabled] .btn-warning:hover {
   border-color: #d43f3a;
   width: auto;
   float: right;
-  margin: 3px;
+  margin: 1px;
 }
 .btn-danger.focus,
 .btn-danger:focus {

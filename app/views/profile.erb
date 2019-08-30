@@ -17,8 +17,16 @@ function openForm() {
   document.getElementById("myForm").style.display = "block";
 }
 
+function openEditForm() {
+  document.getElementById("myForm-edit").style.display = "block";
+}
+
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
+}
+
+function closeEditForm() {
+  document.getElementById("myForm-edit").style.display = "none";
 }
 
 			$(function () {
@@ -478,7 +486,7 @@ function closeForm() {
 
 			<div class="btn-create">
 			<button type="button" class="btn btn-danger">Delete</button>
-			<button type="button" class="btn btn-success">Edit</button>
+			<button type="button" class="btn btn-success" onclick="openEditForm()" >Edit</button>
 			<button type="button" class="btn btn-primary" onclick="openForm()">Create/Add</button>			
 			</div>
 
@@ -516,6 +524,29 @@ function closeForm() {
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
 </div>
+
+<!--------------------------------------------form edit---------------------------------------------------------------->
+<div class="form-popup" id="myForm-edit">
+  <form action="/edit/profile/<%= @lottery.id %>" method="post" class="form-container">
+	<h3>Edit <%= @lottery.name %> Form</h3>
+
+    <label for="name"><b>Name : </b></label>
+    <input type="text" placeholder="Enter the name of your lottery" name="name" value="<%= @lottery.name %>" required>
+
+	<label for="description"><b>Description : </b></label>
+    <input type="text" placeholder="Enter the description of your lottery" name="description" value="<%= @lottery.description %>" required>
+
+	<label for="adresse"><b>Adresse : </b></label>
+    <input type="text" placeholder="Enter the adresse of your lottery" name="adresse" value="<%= @lottery.adresse %>" required>
+
+	<label for="tel"><b>Telephone : </b></label>
+    <input type="text" placeholder="Enter the telephone of your lottery" name="tel" value="<%= @lottery.tel %>" required>
+    
+    <button type="submit" class="btn">Edit</button>
+    <button type="button" class="btn cancel" onclick="closeEditForm()">Close</button>
+  </form>
+</div>
+<!-------------------------------------------------------------------------------------------------------------->
 
 			<h5 class="m-t-1">Total revenue : <span class="tag tag-success" id="revenue-tag">$15,341,110</span></h5>
 			<hr class="m-t-2">
