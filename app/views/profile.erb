@@ -477,8 +477,12 @@ function closeForm() {
 			<h3><%= @lottery.name %> Dashboard</h3>
 
 			<div class="btn-create">
-			<button type="button" class="btn btn-primary" onclick="openForm()">Create/Add</button>
+			<button type="button" class="btn btn-danger">Delete</button>
+			<button type="button" class="btn btn-success">Edit</button>
+			<button type="button" class="btn btn-primary" onclick="openForm()">Create/Add</button>			
 			</div>
+
+
 
 <div class="dropdown">
 	<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><%= @lottery.name %>
