@@ -1,6 +1,4 @@
-		    <!-- Bootstrap CSS -->
 		
-				
 		<!-- Scripts -->
 		<script src="/assets/jquery/jquery-3.1.0.min.js"></script>
 		<script src="/assets/tether/tether.min.js"></script>
@@ -8,7 +6,7 @@
 		<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 		<script src="/assets/jquery.scrollspeed/jquery.scrollspeed.min.js"></script>
 		<script src="/assets/jquery.inview/jquery.inview.min.js"></script>
-
+		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="/assets/bootstrap/bootstrap_renewed.css">
 		<!-- Google Font Roboto -->
 		<link rel="stylesheet" href="/assets/fonts/font-roboto.css">
@@ -491,7 +489,6 @@ function closeEditForm() {
 			<h3><%= @lottery.name %> Dashboard</h3>
 
 			<div class="btn-create">
-
 			<form action="/delete/profile/<%= @lottery.id%>" method="post">
 			<input type="hidden" name="_method" value="delete">
 			<button type="submit" class="btn btn-danger" >Delete</button>

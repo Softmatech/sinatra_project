@@ -1,32 +1,90 @@
-<div>
-<h3> Pos</h3>
+<!-- Scripts -->
+		<script src="/assets/jquery/jquery-3.1.0.min.js"></script>
+		<script src="/assets/tether/tether.min.js"></script>
+		<script src="/assets/bootstrap/bootstrap4-alpha3.min.js"></script>
+		<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+		<script src="/assets/jquery.scrollspeed/jquery.scrollspeed.min.js"></script>
+		<script src="/assets/jquery.inview/jquery.inview.min.js"></script>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="/assets/bootstrap/bootstrap_renewed.css">
+		<!-- Google Font Roboto -->
+		<link rel="stylesheet" href="/assets/fonts/font-roboto.css">
+		<script>
+
+    function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function openEditForm() {
+  document.getElementById("myForm-edit").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+
+function closeEditForm() {
+  document.getElementById("myForm-edit").style.display = "none";
+}
+</script>
+
+    		<nav class="navbar navbar-inverse fixed-nav">
+			<div class="container-fluid">
+				<div class="navbar-header">
+				<a class="navbar-brand" href="/profile">Bòlèt Pam</a>
+				</div>
+				<ul class="nav navbar-nav">
+				<li class="active"><a href="">Dashboard</a></li>
+				<li><a href="/pos">POS</a></li>
+				<li><a href="#">Lottery Draws</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+				<li><a href="#"><span class="glyphicon glyphicon-user"></span> <%= @user.email%></a></li>
+				</ul>
+			</div>
+		</nav>
+
+	<div class="btn-create">
+       
+            <hr>
+             <h3>Pos </h3>
+            <button type="button" class="btn btn-danger" onclick="">Delete</button>
+                <button type="button" class="btn btn-success" onclick="">Edit</button>
+			    <button type="button" class="btn btn-primary" onclick="openForm()">Create/Add</button>	
+	</div>
+
+    <div class="form-popup" id="myForm">
+  <form action="/pos" method="post" class="form-container">
+	<h3>POS Register Form</h3>
+	<input type="hidden" name="lottery_id" value="<%= @lottery.id %>" required>
+
+	<label for="adresse"><b>Adress : </b></label>
+    <input type="text" placeholder="Enter the adresse of the POS" name="adress" required>
+
+	<label for="tel"><b>Telephone : </b></label>
+    <input type="text" placeholder="Enter the telephone of the POS" name="telephone" required>
+    
+    <button type="submit" class="btn">Register</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
 </div>
 
 <div>
 <table class="table table-dark table-hover">
     <thead>
       <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
+        <th>#</th>
+        <th>Telephone</th>
+        <th>Adress</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
+        <td>1</td>
+        <td>+(509) 4301-28943</td>
+        <td>24 Rue Estime Delmas 19, Port-au-prince</td>
       </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
+      
     </tbody>
   </table>
 </div>

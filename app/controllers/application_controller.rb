@@ -120,5 +120,9 @@ class ApplicationController < Sinatra::Base
     end
   end
   
+  post '/pos' do 
+      Post.create(params)
+      redirect '/pos'
+  end
 
 end
