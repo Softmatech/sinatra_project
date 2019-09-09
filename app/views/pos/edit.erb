@@ -1,10 +1,17 @@
-<script src="/assets/jquery/jquery-3.1.0.min.js"></script>
-		<script src="/assets/tether/tether.min.js"></script>
-		<script src="/assets/bootstrap/bootstrap4-alpha3.min.js"></script>
-		<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-		<script src="/assets/jquery.scrollspeed/jquery.scrollspeed.min.js"></script>
-		<script src="/assets/jquery.inview/jquery.inview.min.js"></script>
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="/assets/bootstrap/bootstrap_renewed.css">
-		<!-- Google Font Roboto -->
-		<link rel="stylesheet" href="/assets/fonts/font-roboto.css">
+
+
+<div class="form-edit" id="myForm">
+  <form action="/pos" method="post" class="form-container">
+	<h3>POS Edit Form</h3>
+	<input type="hidden" name="pos_id" value="<%= @pos.id %>" required>
+
+	<label for="adresse"><b>Adress : </b></label>
+    <input type="text" placeholder="Enter the adresse of the POS" name="adress" required>
+
+	<label for="tel"><b>Telephone : </b></label>
+    <input type="text" placeholder="Enter the telephone of the POS" name="telephone" required>
+    
+    <button type="submit" class="btn">Register</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
