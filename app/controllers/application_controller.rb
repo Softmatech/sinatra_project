@@ -16,7 +16,7 @@ class ApplicationController < Sinatra::Base
     if Helpers.is_logged_in?(session)
       @user = Helpers.current_user(session)
     end
-    erb :welcome
+    erb :welcome, layout: false
   end
 
   get "/login" do
@@ -123,6 +123,18 @@ class ApplicationController < Sinatra::Base
   post '/pos' do 
       Post.create(params)
       redirect back
+  end
+
+  get '/edit/pos/:id' do 
+    @pos = Post.find(params[:id])
+    erb :"pos/edit"
+  end
+  patch '/edit/pos/:id' do
+
+  end
+
+  delete '/pos/:id' do
+
   end
 
 end

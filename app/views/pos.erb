@@ -34,12 +34,10 @@ function closeEditForm() {
        
             <hr>
              <h3><%= @lottery.name%> Pos </h3>
-            <button type="button" class="btn btn-danger" onclick="">Delete</button>
-                <button type="button" class="btn btn-success" onclick="">Edit</button>
 			    <button type="button" class="btn btn-primary" onclick="openForm()">Create/Add</button>	
 	</div>
 
-    <div class="form-popup" id="myForm">
+<div class="form-popup" id="myForm">
   <form action="/pos" method="post" class="form-container">
 	<h3>POS Register Form</h3>
 	<input type="hidden" name="lottery_id" value="<%= @lottery.id %>" required>
@@ -55,6 +53,7 @@ function closeEditForm() {
   </form>
 </div>
 
+
 <div>
 <table class="table table-dark table-hover">
     <thead>
@@ -62,6 +61,7 @@ function closeEditForm() {
         <th>#</th>
         <th>Telephone</th>
         <th>Adress</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -70,6 +70,17 @@ function closeEditForm() {
         <td><%=item.id%></td>
         <td><%=item.telephone%></td>
         <td><%=item.adress%></td>
+        <td>
+            <div class="dropdown">
+            <button type="button" class="btn btn-warning dropdown-header" data-toggle="dropdown">
+                Edit/Delete
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="/edit/pos/<%= item.id %>">Edit</a>
+                <a class="dropdown-item" href="/delete/pos/<%=item.id%>">Delete</a>
+            </div>
+            </div>
+        </td>
       </tr>
     <% end %>
       
