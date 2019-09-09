@@ -110,19 +110,19 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  get '/pos' do
+  get '/pos/:id' do
     if Helpers.is_logged_in?(session)
       @user = Helpers.current_user(session)
       if params[:id]
         @lottery = Lottery.find(params[:id])
+        erb :pos
       end
-    erb :pos
     end
   end
   
   post '/pos' do 
       Post.create(params)
-      redirect '/pos'
+      redirect back
   end
 
 end

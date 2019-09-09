@@ -28,26 +28,12 @@ function closeEditForm() {
 }
 </script>
 
-    		<nav class="navbar navbar-inverse fixed-nav">
-			<div class="container-fluid">
-				<div class="navbar-header">
-				<a class="navbar-brand" href="/profile">Bòlèt Pam</a>
-				</div>
-				<ul class="nav navbar-nav">
-				<li class="active"><a href="">Dashboard</a></li>
-				<li><a href="/pos">POS</a></li>
-				<li><a href="#">Lottery Draws</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-				<li><a href="#"><span class="glyphicon glyphicon-user"></span> <%= @user.email%></a></li>
-				</ul>
-			</div>
-		</nav>
+
 
 	<div class="btn-create">
        
             <hr>
-             <h3>Pos </h3>
+             <h3><%= @lottery.name%> Pos </h3>
             <button type="button" class="btn btn-danger" onclick="">Delete</button>
                 <button type="button" class="btn btn-success" onclick="">Edit</button>
 			    <button type="button" class="btn btn-primary" onclick="openForm()">Create/Add</button>	
@@ -79,11 +65,14 @@ function closeEditForm() {
       </tr>
     </thead>
     <tbody>
+    <% @lottery.posts.each do |item| %>
       <tr>
-        <td>1</td>
-        <td>+(509) 4301-28943</td>
-        <td>24 Rue Estime Delmas 19, Port-au-prince</td>
+        <td><%=item.id%></td>
+        <td><%=item.telephone%></td>
+        <td><%=item.adress%></td>
       </tr>
+    <% end %>
+      
       
     </tbody>
   </table>

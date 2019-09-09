@@ -15,7 +15,23 @@
   </head>
   <body>
 
-
+    		<nav class="navbar navbar-inverse fixed-nav">
+			<div class="container-fluid">
+				<div class="navbar-header">
+				<a class="navbar-brand" href="/profile">Bòlèt Pam</a>
+				</div>
+				<ul class="nav navbar-nav">
+				<li class="active"><a href="">Dashboard</a></li>
+        <% if @lottery %>
+				  <li><a href="/pos/<%= @lottery.id%>">POS</a></li>
+        <% end %>
+				<li><a href="#">Lottery Draws</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+				<li><a href="#"><span class="glyphicon glyphicon-user"></span> <%= @user.email%></a></li>
+				</ul>
+			</div>
+		</nav>
 
     <div class="wrapper">
 
