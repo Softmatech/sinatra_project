@@ -471,8 +471,8 @@ function closeEditForm() {
 				</div>
 				<ul class="nav navbar-nav">
 				<li class="active"><a href="">Dashboard</a></li>
-				<li><a href="#">Client/POS</a></li>
-				<li><a href="#">Users</a></li>
+				<li><a href="#">POS</a></li>
+				<li><a href="#">Lottery Draws</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 				<li><a href="#"><span class="glyphicon glyphicon-user"></span> <%= @user.email%></a></li>
@@ -485,7 +485,11 @@ function closeEditForm() {
 			<h3><%= @lottery.name %> Dashboard</h3>
 
 			<div class="btn-create">
-			<button type="button" class="btn btn-danger">Delete</button>
+
+			<form action="/delete/profile/<%= @lottery.id%>" method="post">
+			<input type="hidden" name="_method" value="delete">
+			<button type="submit" class="btn btn-danger" >Delete</button>
+			</form>
 			<button type="button" class="btn btn-success" onclick="openEditForm()" >Edit</button>
 			<button type="button" class="btn btn-primary" onclick="openForm()">Create/Add</button>			
 			</div>
@@ -506,7 +510,7 @@ function closeEditForm() {
 <div class="form-popup" id="myForm">
   <form action="/profile" method="post" class="form-container">
 	<h3>Lottery Register Form</h3>
-	<input type="hidden" name="user_id" value="<%= @user.id %>" required>
+	<input type="hidden" name="users_account_id" value="<%= @user.id %>" required>
 
     <label for="name"><b>Name : </b></label>
     <input type="text" placeholder="Enter the name of your lottery" name="name" required>

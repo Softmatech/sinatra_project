@@ -83,8 +83,8 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/profile" do
-    # @user = Helpers.current_user session
-    # @user.lotteries.create(params)
+    @user = Helpers.current_user session
+    @user.lotteries.create(params)
         @lottery = Lottery.create(params)
         flash[:message] = "Lottery registered successfully"
         redirect "/profile"
@@ -96,6 +96,15 @@ class ApplicationController < Sinatra::Base
         @lottery = Lottery.find(params[:id])
         @lottery.update(params)
         erb :profile
+    end
+  end
+
+  delete '/delete/profile/:id' do
+    if Helpers.is_logged_in?(session)
+      @user = Helpers.current_user(session)
+        @lottery = Lottery.find(params[:id])
+        @lottery.delete
+        redirect "/profile"
     end
   end
 
