@@ -466,6 +466,25 @@ function closeEditForm() {
 
 
 
+    		<nav class="navbar navbar-inverse fixed-nav">
+			<div class="container-fluid">
+				<div class="navbar-header">
+				<a class="navbar-brand" href="/profile">Bòlèt Pam</a>
+				</div>
+				<ul class="nav navbar-nav">
+				<li class="active"><a href="">Dashboard</a></li>
+				<li><a href="/pos">POS</a></li>
+				<li><a href="#">Lottery Draws</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+				<li><a href="#"><span class="glyphicon glyphicon-user"></span> <%= @user.email%></a></li>
+				</ul>
+			</div>
+		</nav>
+
+
+
+
 <div class="container margin-body">
 
 			<h3><%= @lottery.name %> Dashboard</h3>
@@ -481,8 +500,7 @@ function closeEditForm() {
 			</div>
 
 
-
-<div class="dropdown">
+  <div class="dropdown">
 	<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><%= @lottery.name %>
 		<span class="caret"></span></button>
 			<ul class="dropdown-menu dropdown-menu-right">
@@ -492,6 +510,7 @@ function closeEditForm() {
 				
 			</ul>
 </div>
+
 
 <div class="form-popup" id="myForm">
   <form action="/profile" method="post" class="form-container">

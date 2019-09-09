@@ -13,6 +13,9 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
+    if Helpers.is_logged_in?(session)
+      @user = Helpers.current_user(session)
+    end
     erb :welcome
   end
 
@@ -61,7 +64,6 @@ class ApplicationController < Sinatra::Base
 
   get "/profile" do
     if Helpers.is_logged_in?(session)
-      puts "Session OK #{session[:user_id]}"
       @user = Helpers.current_user(session)
       if params[:id]
         @lottery = Lottery.find(params[:id])
@@ -107,5 +109,16 @@ class ApplicationController < Sinatra::Base
         redirect "/profile"
     end
   end
+
+  get '/pos' do
+    if Helpers.is_logged_in?(session)
+      @user = Helpers.current_user(session)
+      if params[:id]
+        @lottery = Lottery.find(params[:id])
+      end
+    erb :pos
+    end
+  end
+  
 
 end
