@@ -20,6 +20,22 @@
 
     </div>
 
+    		<nav class="navbar navbar-inverse fixed-nav">
+			<div class="container-fluid">
+				<div class="navbar-header">
+				<a class="navbar-brand" href="/profile">Bòlèt Pam</a>
+				</div>
+				<ul class="nav navbar-nav">
+				<li class="active"><a href="">Dashboard</a></li>
+				<li><a href="#">POS</a></li>
+				<li><a href="#">Lottery Draws</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+				<li><a href="#"><span class="glyphicon glyphicon-user"></span> <%= @user.email%></a></li>
+				</ul>
+			</div>
+		</nav>
+
     <script src="/javascripts/validation.js"></script>
     <!--[if lt IE 7]>
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
