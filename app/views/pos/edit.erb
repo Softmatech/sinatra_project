@@ -1,15 +1,14 @@
 
 
 <div class="form-edit" id="myForm">
-  <form action="/pos" method="post" class="form-container">
+  <form action="/edit/pos/<%=@pos.id%>" method="post" class="form-container">
 	<h3>POS Edit Form</h3>
-	<input type="hidden" name="pos_id" value="<%= @pos.id %>" required>
 
 	<label for="adresse"><b>Adress : </b></label>
-    <input type="text" placeholder="Enter the adresse of the POS" name="adress" required>
+    <input type="text" placeholder="Enter the adresse of the POS" name="adress" value="<%=@pos.adress%>" required>
 
 	<label for="tel"><b>Telephone : </b></label>
-    <input type="text" placeholder="Enter the telephone of the POS" name="telephone" required>
+    <input type="text" placeholder="Enter the telephone of the POS" name="telephone" value="<%=@pos.telephone%>" required>
     
     <button type="submit" class="btn">Register</button>
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>

@@ -15,6 +15,7 @@ class ApplicationController < Sinatra::Base
   get "/" do
     if Helpers.is_logged_in?(session)
       @user = Helpers.current_user(session)
+      redirect '/profile'
     end
     erb :welcome, layout: false
   end
@@ -22,7 +23,7 @@ class ApplicationController < Sinatra::Base
   get "/login" do
     if !(Helpers.is_logged_in?(session))
       puts "not already logged in"
-      erb :login
+      erb :login, layout: false
       else
         redirect "/profile"        
       end
@@ -126,9 +127,22 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/edit/pos/:id' do 
+    if Helpers.is_logged_in?(session)
+      @user = Helpers.current_user(session)
     @pos = Post.find(params[:id])
     erb :"pos/edit"
+    end
   end
+
+  post '/edit/pos/:id' do
+    if Helpers.is_logged_in?(session)
+      @user = Helpers.current_user(session) 
+    @pos = Post.find(params[:id])
+    @pos.update(params)
+    redirect "/pos/#{@pos.lottery.id}"
+    end
+  end
+
   patch '/edit/pos/:id' do
 
   end
