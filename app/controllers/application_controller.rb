@@ -143,12 +143,13 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  patch '/edit/pos/:id' do
-
-  end
-
-  delete '/pos/:id' do
-
+  get '/delete/pos/:id' do
+    if Helpers.is_logged_in?(session)
+      @user = Helpers.current_user(session)
+        @pos = Post.find(params[:id])
+        @pos.delete
+        redirect back
+    end
   end
 
 end
