@@ -102,6 +102,7 @@ button:hover {
 
 .container {
   padding: 16px;
+  justify-content: center;
 }
 
 /*  Clear floats */
@@ -122,7 +123,7 @@ button:hover {
 .footer {
   position: fixed;
   left: 0;
-  bottom: 0;
+  bottom: 0%;
   width: 100%;
   color: white;
   text-align: center;

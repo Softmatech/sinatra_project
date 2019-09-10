@@ -1,16 +1,4 @@
-		
-		<!-- Scripts -->
-		<script src="/assets/jquery/jquery-3.1.0.min.js"></script>
-		<script src="/assets/tether/tether.min.js"></script>
-		<script src="/assets/bootstrap/bootstrap4-alpha3.min.js"></script>
-		<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-		<script src="/assets/jquery.scrollspeed/jquery.scrollspeed.min.js"></script>
-		<script src="/assets/jquery.inview/jquery.inview.min.js"></script>
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="/assets/bootstrap/bootstrap_renewed.css">
-		<!-- Google Font Roboto -->
-		<link rel="stylesheet" href="/assets/fonts/font-roboto.css">
-		<script>
+<script>
 
 function openForm() {
   document.getElementById("myForm").style.display = "block";
@@ -466,7 +454,8 @@ function closeEditForm() {
 <div class="container margin-body">
 
 			<h3><%= @lottery.name %> Dashboard</h3>
-
+			<h5 class="m-t-1">Total revenue : <span class="tag tag-success" id="revenue-tag">$15,341,110</span></h5>
+			
 			<div class="btn-create">
 			<form action="/delete/profile/<%= @lottery.id%>" method="post">
 			<input type="hidden" name="_method" value="delete">
@@ -475,7 +464,6 @@ function closeEditForm() {
 			<button type="button" class="btn btn-success" onclick="openEditForm()" >Edit</button>
 			<button type="button" class="btn btn-primary" onclick="openForm()">Create/Add</button>			
 			</div>
-
 
   <div class="dropdown">
 	<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><%= @lottery.name %>
@@ -487,7 +475,7 @@ function closeEditForm() {
 				
 			</ul>
 </div>
-
+<hr class="m-t-2">
 
 <div class="form-popup" id="myForm">
   <form action="/profile" method="post" class="form-container">
@@ -533,10 +521,6 @@ function closeEditForm() {
   </form>
 </div>
 <!-------------------------------------------------------------------------------------------------------------->
-
-			<h5 class="m-t-1">Total revenue : <span class="tag tag-success" id="revenue-tag">$15,341,110</span></h5>
-			<hr class="m-t-2">
-			
 			<h3>Sales - Top 3 Countries</h3>
 			
 			<!-- sales doughnut charts -->
