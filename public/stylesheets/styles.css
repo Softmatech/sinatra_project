@@ -135,8 +135,8 @@ button:hover {
   background: black;
   color: white;
   position: relative;
-  /* padding: 5px; */
-  /* margin-top: 3px; */
+  padding: 5px;
+  margin-top: 3px;
 }
 
 #message p {
