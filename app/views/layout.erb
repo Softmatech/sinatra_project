@@ -35,7 +35,11 @@
 				<li><a href="#">Lottery Draws</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-				<li><a href="#"><span class="glyphicon glyphicon-user"></span> <%= Helpers.current_user(session).email%></a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-user"></span> 
+				<%if(Helpers.current_user(session))%>
+				<%= Helpers.current_user(session).email%>
+				<%end%>
+				</a></li>
 				</ul>
 			</div>
 		</nav>
