@@ -69,8 +69,9 @@ class ApplicationController < Sinatra::Base
       if params[:id]
         @lottery = Lottery.find(params[:id])
         erb :profile
+      elsif(@lottery = @user.lotteries.first)
+        erb :profile
       else
-        @lottery = @user.lotteries.first
         erb :profile
       end
     

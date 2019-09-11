@@ -453,11 +453,19 @@ function closeEditForm() {
 
 <div class="container margin-body">
 
-			<h3><%= @lottery.name %> Dashboard</h3>
+			<h3>
+			<% if(@lottery) %> 
+			<%= @lottery.name%>
+			<%end%>
+			Dashboard </h3>
 			<h5 class="m-t-1">Total revenue : <span class="tag tag-success" id="revenue-tag">$15,341,110</span></h5>
 			
 			<div class="btn-create">
-			<form action="/delete/profile/<%= @lottery.id%>" method="post">
+			<form action="/delete/profile/
+			<% if(@lottery)%>
+			<%=@lottery.id%>
+			<%end%>
+			" method="post">
 			<input type="hidden" name="_method" value="delete">
 			<button type="submit" class="btn btn-danger" >Delete</button>
 			</form>
@@ -466,7 +474,10 @@ function closeEditForm() {
 			</div>
 
   <div class="dropdown">
-	<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><%= @lottery.name %>
+	<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+	<% if(@lottery) %>
+	<%=@lottery.name%>
+	<%end%>
 		<span class="caret"></span></button>
 			<ul class="dropdown-menu dropdown-menu-right">
 			<% @user.lotteries.each do |lot| %>
@@ -501,20 +512,48 @@ function closeEditForm() {
 
 <!--------------------------------------------form edit---------------------------------------------------------------->
 <div class="form-popup" id="myForm-edit">
-  <form action="/edit/profile/<%= @lottery.id %>" method="post" class="form-container">
-	<h3>Edit <%= @lottery.name %> Form</h3>
+  <form action="/edit/profile/
+  <%if(@lottery) %>
+  <%= @lottery.id%>
+  <%end%>
+  " method="post" class="form-container">
+	<h3>Edit 
+	<%if(@lottery)%>
+	<%= @lottery.name%>
+	<%end%> 
+	Form</h3>
 
     <label for="name"><b>Name : </b></label>
-    <input type="text" placeholder="Enter the name of your lottery" name="name" value="<%= @lottery.name %>" required>
+    <input type="text" placeholder="Enter the name of your lottery" name="name" value=
+	"<% if(@lottery) %>
+	<%=@lottery.name%>
+	<%end%>
+	" 
+	required>
 
 	<label for="description"><b>Description : </b></label>
-    <input type="text" placeholder="Enter the description of your lottery" name="description" value="<%= @lottery.description %>" required>
+    <input type="text" placeholder="Enter the description of your lottery" name="description" 
+	value="
+	<%if(@lottery) %>
+	<%=@lottery.description%>
+	<%end%>
+	" required>
 
 	<label for="adresse"><b>Adresse : </b></label>
-    <input type="text" placeholder="Enter the adresse of your lottery" name="adresse" value="<%= @lottery.adresse %>" required>
+    <input type="text" placeholder="Enter the adresse of your lottery" name="adresse" 
+	value="
+	<%if(@lottery) %>
+	<%=@lottery.adresse%>
+	<%end%>
+	" required>
 
 	<label for="tel"><b>Telephone : </b></label>
-    <input type="text" placeholder="Enter the telephone of your lottery" name="tel" value="<%= @lottery.tel %>" required>
+    <input type="text" placeholder="Enter the telephone of your lottery" name="tel" 
+	value="
+	<%if(@lottery) %>
+	<%=@lottery.telephone%>
+	<%end%>
+	" required>
     
     <button type="submit" class="btn">Edit</button>
     <button type="button" class="btn cancel" onclick="closeEditForm()">Close</button>
